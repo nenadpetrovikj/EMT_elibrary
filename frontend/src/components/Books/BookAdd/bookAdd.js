@@ -26,7 +26,7 @@ const BookAdd = (props) => {
         const author = formData.author;
         const availableCopies = formData.availableCopies;
 
-        props.onAddProduct(name, categoryType, author, availableCopies);
+        props.onAddBook(name, categoryType, author, availableCopies);
         history.push("/books");
     }
 

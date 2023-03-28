@@ -8,7 +8,7 @@ const BookEdit = (props) => {
     const [formData, updateFormData] = React.useState({
         name: "",
         categoryType: "NOVEL",
-        author: 1,
+        author: 0,
         availableCopies: 0,
     })
 
@@ -23,10 +23,10 @@ const BookEdit = (props) => {
         e.preventDefault();
         const name = formData.name !== "" ? formData.name : props.book.name;
         const categoryType = formData.categoryType !== "NOVEL" ? formData.categoryType : props.book.categoryType;
-        const author = formData.author !== 1 ? formData.author : props.book.author.id;
-        const availableCopies = formData.availableCopies !== 0 ? formData.availableCopies : props.book.categoryType;
+        const author = formData.author !== 0 ? formData.author : props.book.author.id;
+        const availableCopies = formData.availableCopies !== 0 ? formData.availableCopies : props.book.availableCopies;
 
-        props.onEditProduct(props.book.id, name, categoryType, author, availableCopies);
+        props.onEditBook(props.book.id, name, categoryType, author, availableCopies);
         history.push("/books");
     }
 

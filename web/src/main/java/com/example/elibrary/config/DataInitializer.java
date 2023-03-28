@@ -25,19 +25,18 @@ public class DataInitializer {
     }
 
     private Category randomizeCategory(int number) {
-        if (number == 1) return Category.DRAMA;
-        if (number == 2) return Category.BIOGRAPHY;
-        return Category.CLASSICS;
+        if (number % 7 == 1) return Category.NOVEL;
+        if (number % 7 == 2) return Category.THRILER;
+        if (number % 7 == 3) return Category.HISTORY;
+        if (number % 7 == 4) return Category.FANTASY;
+        if (number % 7 == 5) return Category.BIOGRAPHY;
+        if (number % 7 == 6) return Category.CLASSICS;
+        return Category.DRAMA;
     }
 
     @PostConstruct
     public void initData() {
-//        for (int i = 1; i < 4; i++) {
-//            Country country = this.countryService.create("Country " + i, "Continent " + i);
-//            Author author = this.authorService.create("AuthorName " + i, "AuthorSurname " + i, country.getId());
-//            bookService.create("BookName " + i, randomizeCategory(i), author.getId(), i*100);
-//        }
-        for (int i = 1; i < 4; i++) {
+        for (int i = 1; i < 11; i++) {
             CountryDto countryDto = new CountryDto("Country " + i, "Continent " + i);
             this.countryService.create(countryDto);
             AuthorDto authorDto = new AuthorDto("AuthorName " + i, "AuthorSurname " + i, countryService.findAll().get(i-1).getId());

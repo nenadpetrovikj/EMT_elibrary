@@ -30,11 +30,11 @@ class App extends Component {
               <Route path={"/books/add"} exact render={() =>
                   <BookAdd categoryTypes={this.state.categoryTypes}
                            authors={this.state.authors}
-                           onAddProduct={this.addBook} />}/>
+                           onAddBook={this.addBook} />}/>
               <Route path={"/books/edit/:id"} exact render={() =>
                   <BookEdit categoryTypes={this.state.categoryTypes}
                             authors={this.state.authors}
-                            onEditProduct={this.editBook}
+                            onEditBook={this.editBook}
                             book={this.state.selectedBook} />}/>
               <Route path={"/books"} exact render={() =>
                   <Books books={this.state.books}
